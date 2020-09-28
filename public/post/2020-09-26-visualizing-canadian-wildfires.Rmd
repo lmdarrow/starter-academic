@@ -1,0 +1,30 @@
+---
+title: Visualizing Canadian Wildfires
+author: Lucia Darrow
+date: '2020-09-26'
+slug: visualizing-canadian-wildfires
+categories: []
+tags: []
+---
+
+
+```{r}
+
+library(data.table)
+library(tidyverse)
+library(ggplot2)
+library(bcmaps)
+fires <- fread("./blogdata/H_FIRE_PNT.csv")
+
+fires %<>% group_by(FIRE_YEAR) %>%
+  summarise(n = n())
+
+ggplot(fires, aes(x = FIRE_YEAR, y = n)) +
+  geom_point()
+
+library(sf)
+
+bc <- bc_bound()
+plot(st_geometry(bc))
+
+```
