@@ -3,6 +3,7 @@ title: Seattle Cycling Trends
 author: Lucia Darrow
 date: '2020-09-23'
 slug: seattle-cycling-trends
+image: images/bike.jpg
 categories:
   - R
 tags: []

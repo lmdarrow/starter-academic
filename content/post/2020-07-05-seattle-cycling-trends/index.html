@@ -1,0 +1,41 @@
+---
+title: Seattle Cycling Trends
+author: Lucia Darrow
+date: '2020-07-05'
+slug: seattle-cycling-trends
+image: images/bike.jpg
+categories:
+  - R
+tags: []
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>In this post, I revisit a bike and pedestrian traffic analysis I performed several months ago in light of the COVID-19 pandemic. The data supporting this analysis was sourced from the <a href="http://www.seattle.gov/transportation/projects-and-programs/programs/bike-program/bike-counters">Seattle government transportation website</a> and the original analysis was inspired by a R for Data Science Tidy Tuesday community event. I highly recommend checking out the <a href="https://github.com/rfordatascience/tidytuesday">Tidy Tuesday repository</a> for fun, quick data challenges!</p>
+<div id="seattle-bike-traffic-overview" class="section level2">
+<h2>Seattle Bike Traffic Overview</h2>
+<p>First, let’s take a look at an overview of bike traffic over time.</p>
+<p><img src="/post/2020-07-05-seattle-cycling-trends/index_files/figure-html/overview-1.png" width="672" /></p>
+<p>A few high-volume crossings (e.g. BGT North of NE 70th and Elliot Bay Trail) stand out, as well as some gaps in the counter data. There is also clear seasonality to this data, as expected, with rainy winters in Seattle. Using NOAA weather files for the Seattle area, we can take a quick look at the relationship between the number of bicyclists and precipitation. We consider a “rainy” day to be one with at least 0.5 inches of precipitation.</p>
+<p><img src="/post/2020-07-05-seattle-cycling-trends/index_files/figure-html/weatherPlot-1.png" width="672" /></p>
+<p>We can see a relationship between temperature and bike count, as well as a relationship between preciptiation and bike count. Bicyclist counts are noticeably higher on sunny, dry days than cold wet ones. In Seattle, rainy day bicyclists are likely regular commuters.</p>
+<p>Next, let’s look into the hourly bike traffic patterns at different crossings to get a sense of their uses.</p>
+<p><img src="/post/2020-07-05-seattle-cycling-trends/index_files/figure-html/crossingTimeComparison-1.png" width="672" /></p>
+<p>Many bike crossing show clear commuter patterns on the weekdays, with ridership hitting its highest counts around 9 am and 5 pm on Monday - Friday. For most crossings, weekend traffic peaks around noon.</p>
+</div>
+<div id="covid-19-and-bike-traffic" class="section level2">
+<h2>COVID-19 and Bike Traffic</h2>
+<p>Seattle was the first major US city to be hit by COVID-19 starting in February 2020. How have social distancing practices impacted overall transportation trends over the last three months?</p>
+<p><img src="/post/2020-07-05-seattle-cycling-trends/index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="/post/2020-07-05-seattle-cycling-trends/index_files/figure-html/covidByMonth-1.png" width="672" /></p>
+<p>As the pandemic worsens, we see a loss of commuting structure to the bicyclists’ movement over the hours of the day. By April, overall bike count has increased significantly from previous years, with counts peaking in the afternoon. Finally, let’s look at these patterns broken out by lane for the month of April, in comparison with average April ridership from 2014-2019.</p>
+<p><img src="/post/2020-07-05-seattle-cycling-trends/index_files/figure-html/covidCrossing-1.png" width="672" /></p>
+<p>These quick snapshots of Seattle’s bike lanes show a changing picture of transportation in the midst of a pandemic. As social distancing practices make public transit or ride-hailing less recommended modes of transportation, many turn to biking for both necessary transportation and leisure.</p>
+</div>
+<div id="counters-in-the-chaz" class="section level2">
+<h2>Counters in the CHAZ</h2>
+<p>Seattle was also the site of some of the nation’s largest organized social protests in response to the May 25th killing of George Floyd. Notably, the Capitol Hill Organized Protest (CHOP) created and occupied an autonomous zone for several weeks in June within Seattle’s Capitol Hill neighborhood. One of the bike counters we studied in this analysis, the Broadway Cycle Track N of E Union Street, is located on the edge of this zone, providing a unique look at movement during this time.</p>
+<p><img src="/post/2020-07-05-seattle-cycling-trends/index_files/figure-html/chop-1.png" width="672" />
+As the community responds after the death of George Floyd on May 25, 2020, we see a sharp drop in cyclist movement near this counter. When the autonomous zone is established on June 8, 2020, movement falls close to zero. Unfortunately, we can’t see the full picture with regards to pedestrian data at this location and time. However, the bike data shows a clear change in movement patterns and gives an indication of the major impacts of this event.</p>
+</div>
