@@ -9,12 +9,11 @@ categories:
 tags: []
 ---
 
-
 ```{r setup, include=FALSE, echo=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-```{r libraries, echo=FALSE}
+```{r libraries}
 
 library(data.table)
 library(tidyverse)
@@ -29,13 +28,16 @@ library(ggtext)
 
 In this post, I revisit a bike and pedestrian traffic analysis I performed several months ago in light of the COVID-19 pandemic. The data supporting this analysis was sourced from the [Seattle government transportation website](http://www.seattle.gov/transportation/projects-and-programs/programs/bike-program/bike-counters) and the original analysis was inspired by a R for Data Science Tidy Tuesday community event. I highly recommend checking out the [Tidy Tuesday repository](https://github.com/rfordatascience/tidytuesday) for fun, quick data challenges!    
 
-```{r loadData, echo = FALSE}
+```{r loadData}
 
 # Original Tidy Tuesday data pull
 # bike_traffic <- fread("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-02/bike_traffic.csv")
 
-# To get a more recent look at bike traffic, data was sourced from Seattle gov on 05/17/20: http://www.seattle.gov/transportation/projects-and-programs/programs/bike-program/bike-counters
+# To get a more recent look at bike traffic, data was sourced from Seattle gov on 05/17/20: 
+# http://www.seattle.gov/transportation/projects-and-programs/programs/bike-program/bike-counters
 
+
+# Read in the set of counter data files and reformat with crossing label
 filenames <- list.files("../blogdata/counters", pattern="*.csv", full.names=TRUE)
 bikeCounterList <- lapply(filenames, read.csv)
 
@@ -53,58 +55,56 @@ seattleWeather <- fread("../blogdata/SeattleWeatherData.csv") %>%
 
 ```
 
-```{r colorPalette, echo = FALSE}
+```{r colorPalette}
 
 # Custom color palette for Seattle
 # We need 7 analogous colors, plus one contrasting 
 
-seattlePalette <- c("darkslategrey", "deepskyblue4", "paleturquoise3", "darkseagreen", "darkgreen", "yellow4", "yellow", "coral4")
+seattlePalette <- c("darkslategrey", "deepskyblue4", "paleturquoise3", "darkseagreen", 
+                    "darkgreen", "yellow4", "yellow", "coral4")
 
 theme_set(theme_minimal())   
 theme_update(text = element_text(family = "serif"))
 
 ```
 
-```{r dataprep, echo = FALSE}
+```{r dataprep}
 
-bikeCounterList %<>% lapply(pivot_longer, cols = -c(Date, crossing), names_to = "directionTransitType", values_to = "count")
+# Tidy bikeCounter list of data to show direction as a column, and reflect count
+bikeCounterList %<>% lapply(pivot_longer, cols = -c(Date, crossing), 
+                            names_to = "directionTransitType", values_to = "count")
 
 # Desired format: date, crossing, direction, transitType, count
 bike_traffic <- data.table::rbindlist(bikeCounterList, fill = FALSE)
 
 # We see each counter has different names for the traffic movement
 # Counters can be either bike + pedestrian or just bike - use this info to set the direction and transit types
-bike_traffic %<>% separate(col = directionTransitType, into = c("transitType", "direction"), sep = "\\.", remove = FALSE)
+bike_traffic %<>% separate(col = directionTransitType, 
+                           into = c("transitType", "direction"), sep = "\\.", remove = FALSE)
 
-bike_traffic[bike_traffic$directionTransitType %in% c("North", "South", "East", "West"), c("direction", "transitType")] <- c(bike_traffic[bike_traffic$directionTransitType %in% c("North", "South", "East", "West"), "directionTransitType"], "bike")
+bike_traffic[bike_traffic$directionTransitType %in% c("North", "South", "East", "West"), 
+             c("direction", "transitType")] <- 
+  c(bike_traffic[bike_traffic$directionTransitType %in% 
+              c("North", "South", "East", "West"), "directionTransitType"], "bike")
 
-bike_traffic[bike_traffic$directionTransitType == "NB", c("direction", "transitType")] <- list("North", "bike")
-bike_traffic[bike_traffic$directionTransitType == "SB", c("direction", "transitType")] <- list("South", "bike")
+bike_traffic[bike_traffic$directionTransitType == "NB", c("direction", "transitType")] <- 
+  list("North", "bike")
+bike_traffic[bike_traffic$directionTransitType == "SB", c("direction", "transitType")] <- 
+  list("South", "bike")
 bike_traffic %<>% select(-directionTransitType)
 bike_traffic$transitType %<>% tolower()
 
 bike_traffic$crossing = substr(bike_traffic$crossing,1,nchar(bike_traffic$crossing)-6)
 bike_traffic$crossing <- gsub('\\.', ' ', bike_traffic$crossing)
 
-# Label as towards or away from the city center
-bike_traffic$relativeDir <- "Away"
-bike_traffic[bike_traffic$crossing %in% c("X39th Ave NE Greenway at NE 62nd St", "Broadway Cycle Track North Of E Union St", "BGT North of NE 70th", "Elliott Bay Trail in Myrtle Edwards Park")  & bike_traffic$direction == "South", "relativeDir"] <- "Towards"
-
-bike_traffic[bike_traffic$crossing == "Chief Sealth TRL North of Thistle" & bike_traffic$direction == "North", "relativeDir"] <- "Towards"
-
-bike_traffic[bike_traffic$crossing == "MTS Trl West of I 90 Bridge" & bike_traffic$direction == "West", "relativeDir"] <- "Towards"
-bike_traffic[bike_traffic$crossing == "NW 58th St Greenway st 22nd Ave NW" & bike_traffic$direction == "East", "relativeDir"] <- "Towards"
-
-
-names(bike_traffic) <- c("date", "crossing", "transitType", "direction", "count", "relativeDir")
-
-bike_traffic$date <- as.POSIXct(bike_traffic$date, format="%m/%d/%Y %I:%M:%S %p", tz="PST8PDT")
+names(bike_traffic) <- c("date", "crossing", "transitType", "direction", "count")
 
 # Create wrapped crossing name for plotting
 var_width = 10
 bike_traffic %<>% mutate(crossingWrap = str_wrap(crossing, var_width))
 
 # Date modification
+bike_traffic$date <- as.POSIXct(bike_traffic$date, format="%m/%d/%Y %I:%M:%S %p", tz="PST8PDT")
 bike_traffic$year <- year(bike_traffic$date)
 bike_traffic$month <- month(bike_traffic$date)
 bike_traffic$monthDate <- as.Date(floor_date(bike_traffic$date, "month"))
@@ -125,20 +125,25 @@ First, let's take a look at an overview of bike traffic over time.
 
 ```{r overview}
 
+# Prepare data for plotting over time
 bike_traffic_area <- bike_traffic %>%
     filter(monthDate >= "2014-02-01", transitType == "bike") %>%
     complete(date = seq.POSIXt(min(date), max(date), by = "hour"), crossingWrap)
 bike_traffic_area$monthDate <- as.Date(floor_date(bike_traffic_area$date, "month"))
 
-
+# Replace NA values with zero
 bike_traffic_area[is.na(bike_traffic_area$count), "count"] = 0
+
+# Format data to consider only bike traffic and group by the month
 bike_traffic_total <- bike_traffic_area %>% 
   filter(transitType == "bike") %>%
   group_by(monthDate) %>%
   summarise(total_count = sum(count))
 
+# Remove NA and one bike counter we will not consider as it is not active
 bike_traffic_area <- bike_traffic_area[!is.na(bike_traffic_area$crossing),]
-bike_traffic_area <- bike_traffic_area[bike_traffic_area$crossing != "Chief Sealth TRL North of Thistle"  ,]
+bike_traffic_area <- 
+  bike_traffic_area[bike_traffic_area$crossing != "Chief Sealth TRL North of Thistle"  ,]
 
 # Plot the total number of bikes by month
 bike_traffic_area  %>%
@@ -146,7 +151,6 @@ bike_traffic_area  %>%
   summarise(total_count = sum(count/1000)) %>%
   ggplot(aes(x = monthDate, y = total_count)) +
     geom_area(aes(fill = factor(crossing)), alpha = .5, position = "stack") +
-  # geom_line(data = bike_traffic_total, aes(x = monthDate, y = total_count/1000)) +
   scale_fill_manual(values=seattlePalette) +
   scale_color_manual(values=seattlePalette) +
   facet_wrap(~crossing, ncol = 1) +
@@ -165,17 +169,22 @@ bike_traffic_area  %>%
 A few high-volume crossings (e.g. BGT North of NE 70th and Elliot Bay Trail) stand out, as well as some gaps in the counter data. There is also clear seasonality to this data, as expected, with rainy winters in Seattle. Using NOAA weather files for the Seattle area, we can take a quick look at the relationship between the number of bicyclists and precipitation. We consider a "rainy" day to be one with at least 0.5 inches of precipitation.
 
 ```{r weatherPlot}
+
+# Bring weather data into the bike traffic data set by date
 bike_traffic %<>% left_join(seattleWeather, by = c("dayDate" = "DATE"))
 
+# Create weather summary
 bike_traffic_weather <- bike_traffic %>%
   filter(transitType == "bike") %>%
   group_by(dayDate) %>%
   summarise(count = sum(count), TAVG = mean(TAVG), PRCP = sum(PRCP))
 
+# Establish a rule for "rainy" in Seattle
 bike_traffic_weather$wet = "No"
 bike_traffic_weather <- bike_traffic_weather[!is.na(bike_traffic_weather$PRCP),]
 bike_traffic_weather[bike_traffic_weather$PRCP >= 50, "wet"] = "Yes"
 
+# Plot bike traffic and color code by weather
 bike_traffic_weather %>%
   group_by(dayDate, wet) %>%
   ggplot(aes(x = TAVG, y = count/1000, color = wet)) +
@@ -194,6 +203,7 @@ Next, let's look into the hourly bike traffic patterns at different crossings to
 
 ```{r crossingTimeComparison}
 
+# Create an hourly bike traffic plot
 bike_traffic %>% 
   filter(year < 2020, transitType == "bike") %>%
   group_by(hour, wday, crossingWrap) %>%
@@ -205,7 +215,8 @@ bike_traffic %>%
   geom_area(alpha = 0.25) +
   facet_grid(wday ~ crossingWrap) +
   scale_x_continuous(name = "Hour of Day", breaks = c(0, 6, 12, 18)) +
-  scale_y_continuous(name = "Percentage of Bike Crossings", labels = scales::percent_format(accuracy=0.1)) + 
+  scale_y_continuous(name = "Percentage of Bike Crossings", 
+                     labels = scales::percent_format(accuracy=0.1)) + 
   scale_fill_manual(values=seattlePalette) +
   scale_color_manual(values=seattlePalette) +
   guides(color=FALSE, fill = FALSE) + 
@@ -216,67 +227,13 @@ bike_traffic %>%
 
 Many bike crossing show clear commuter patterns on the weekdays, with ridership hitting its highest counts around 9 am and 5 pm on Monday - Friday. For most crossings, weekend traffic peaks around noon. 
 
-```{r direction, echo = FALSE, eval = FALSE}
-
-bike_traffic %>% group_by(hour, wday, crossingWrap, relativeDir) %>%
-  summarise(total_count = sum(count, na.rm = TRUE)) %>%
-  ggplot(aes(x = hour, y = total_count/1000, color = relativeDir)) +
-  geom_line() +
-  facet_grid(wday ~ crossingWrap) +
-  scale_x_continuous(name = "Hour of Day", breaks = c(6, 12, 18)) +
-  scale_y_continuous(name = "Bike Count (Thousands)") + 
-  scale_color_manual(values=seattlePalette[c(1,6)]) 
-
-```
-
 ## COVID-19 and Bike Traffic 
 
 Seattle was the first major US city to be hit by COVID-19 starting in February 2020. How have social distancing practices impacted overall transportation trends over the last three months?
 
-```{r}
-kingCountyCovid <- fread("../blogdata/us-counties.csv")
-kingCountyCovid %<>% filter(county == "King")
-
-kingCountyCovid$date <- as.POSIXct(kingCountyCovid$date, format="%m/%d/%Y", tz="PST8PDT")
-
-bike_traffic_area <- bike_traffic %>%
-    filter(dayDate >= "2020-02-01", transitType == "bike") %>%
-  left_join(select(kingCountyCovid, date, cases), by = c("dayDate" = "date"))
-    # complete(date = seq.POSIXt(min(date), max(date), by = "hour"), crossingWrap)
-
-bike_traffic_area[is.na(bike_traffic_area$count), "count"] = 0
-bike_traffic_total <- bike_traffic_area %>% 
-  filter(transitType == "bike") %>%
-  group_by(dayDate) %>%
-  summarise(total_count = sum(count), total_cases = max(cases))
-
-# Plot the total number of bikes by month
-bike_traffic_total  %>%
-  # group_by(dayDate, crossingWrap) %>%
-  # summarise(total_count = sum(count/1000)) %>%
-  ggplot(aes(x = dayDate, y = total_count)) +
-    # geom_area(aes(fill = factor(crossingWrap)), alpha = .5, position = "stack") +
-  geom_point(data = bike_traffic_total, aes(x = dayDate, y = total_count), color = seattlePalette[2], alpha = 0.5) + 
-  stat_smooth(se = FALSE, color = seattlePalette[2]) +
-  geom_line(aes(x = dayDate, y = total_cases), color = seattlePalette[8], size = 1) +
-  scale_y_continuous(name = "Cyclist Count", labels=function(x)  format(x, big.mark = ",", scientific = FALSE),
-  sec.axis = sec_axis(trans = ~ . * 1, name = "King County Case Count", labels=function(x)  format(x, big.mark = ",", scientific = FALSE))) +
-  labs(x = "Date",
-       title = "Seattle Bike Traffic and COVID-19 Cases",
-       subtitle = "February 2020 to June 2020",
-       fill = "Crossing") + 
-  labs(
-    title = "<span style='font-size:14pt'> Seattle <span style='color:#00688b;'>Bike Traffic</span> and
-    <span style='color:#8b3e2f;'>COVID 19 Cases</span> 
-    </span>")+
-  theme(
-    plot.title = element_markdown(lineheight = 1.1)
-  )
-
-
-```
-
 ```{r covidByMonth}
+
+# Create a subset of months to consider and label accordingly
 bike_traffic_covid <- bike_traffic %>% 
   filter(month %in% 2:6)
 
@@ -288,12 +245,14 @@ month_names <- c(
                     `6` = "June"
                     )
 
+# Set plotting attributes of size and alpha based on year. We want 2020 to stand out
 bike_traffic_covid$year %<>% as.character()
-bike_traffic_covid$size <- 1
-bike_traffic_covid$size[bike_traffic_covid$year=="2020"] <- 1.5
+bike_traffic_covid$size <- 0.5
+bike_traffic_covid$size[bike_traffic_covid$year=="2020"] <- 1
 bike_traffic_covid$alpha <- 0.5
 bike_traffic_covid$alpha[bike_traffic_covid$year=="2020"] <- 1
 
+# Plot bike traffic by month, highlighting 2020 values
 bike_traffic_covid %>%
   filter(transitType == "bike") %>%
   group_by(year, hour, month, transitType, size, alpha) %>%
@@ -303,7 +262,7 @@ bike_traffic_covid %>%
   scale_x_continuous(name = "Hour of Day", breaks = c(0, 6, 12, 18)) +
   scale_y_continuous(name = "Bike Count (Thousands)") +
   scale_color_manual(values=seattlePalette[c(1:6,8)]) +
-  scale_size(range = c(0, 1), guide="none") +
+  scale_size(range = c(0.5, 1), guide="none") +
   scale_alpha(range = c(0.5, 1), guide="none") +
   facet_wrap(~ month, labeller = as_labeller(month_names)) +
   labs(title = "Seattle Bike Traffic Patterns in the COVID-19 Pandemic",
@@ -315,6 +274,7 @@ As the pandemic worsens, we see a loss of commuting structure to the bicyclists'
 
 ```{r covidCrossing}
 
+# Create april 2020 subset
 bike_traffic_covid %<>%
   filter(transitType == "bike", year == 2020, month == 4) %>%
   group_by(year, hour, wday, crossingWrap) %>%
@@ -322,6 +282,7 @@ bike_traffic_covid %<>%
   group_by(crossingWrap) %>%
   mutate(pct_bike = total_count/sum(total_count))
 
+# Create april 2020 comparison chart
 bike_traffic %>% 
   filter(month == 4, year != 2020, crossingWrap %in% bike_traffic_covid$crossingWrap) %>%
   group_by(hour, wday, crossingWrap) %>%
@@ -329,11 +290,13 @@ bike_traffic %>%
   group_by(crossingWrap) %>%
   mutate(pct_bike = total_count/sum(total_count)) %>%
   ggplot(aes(x = hour, y = pct_bike)) +
-  geom_line(data = bike_traffic_covid, aes(x = hour, y = pct_bike), color = seattlePalette[8], size = 1) +
+  geom_line(data = bike_traffic_covid, aes(x = hour, y = pct_bike), 
+            color = seattlePalette[8], size = 1) +
   geom_area(alpha = 0.3, fill = seattlePalette[2]) +
   facet_grid(wday ~ crossingWrap) +
   scale_x_continuous(name = "Hour of Day", breaks = c(0, 6, 12, 18)) +
-  scale_y_continuous(name = "Percentage of Bike Crossings", labels = scales::percent_format(accuracy=0.1)) + 
+  scale_y_continuous(name = "Percentage of Bike Crossings", 
+                     labels = scales::percent_format(accuracy=0.1)) + 
   labs(
     title = "**April Seattle Hourly Bike Traffic Patterns**         
     <span style='font-size:11pt'> <span style='color:#00688b;'>Before</span> and
@@ -347,39 +310,3 @@ bike_traffic %>%
 
 These quick snapshots of Seattle's bike lanes show a changing picture of transportation in the midst of a pandemic. As social distancing practices make public transit or ride-hailing less recommended modes of transportation, many turn to biking for both necessary transportation and leisure. 
 
-## Counters in the CHAZ
-
-Seattle was also the site of some of the nation's largest organized social protests in response to the May 25th killing of George Floyd. Notably, the Capitol Hill Organized Protest (CHOP) created and occupied an autonomous zone for several weeks in June within Seattle’s Capitol Hill neighborhood.  One of the bike counters we studied in this analysis, the Broadway Cycle Track N of E Union Street, is located on the edge of this zone, providing a unique look at movement during this time. 
-
-```{r chop, echo = FALSE}
-bike_traffic_chop <- bike_traffic %>% 
-  filter(month %in% 5:7, year %in% c(2020))
-
-month_names <- c(`5` = "May",
-                    `6` = "June"
-                    )
-
-bike_traffic_chop$year %<>% as.character()
-
-# Plot bike daily bike traffic 
-
-bike_traffic_chop %>%
-  filter(crossingWrap == "Broadway\nCycle\nTrack\nNorth Of E\nUnion St") %>%
-  group_by(dayDate) %>%
-  summarise(total_count = sum(count)) %>%
-  ggplot(aes(x = dayDate, y = total_count)) +
-  geom_line(color = seattlePalette[1]) + 
-  geom_vline(xintercept=as.POSIXct("2020-05-25 PDT"), color = seattlePalette[8], size =1) +
-  geom_vline(xintercept=as.POSIXct("2020-06-08 PDT"), color = seattlePalette[2], size = 1) +
-  geom_text(aes(x=as.POSIXct("2020-05-16 PDT"), family = "serif", label="\nThe killing of George Floyd", y=380),  colour=seattlePalette[8], text=element_text(size=11)) +
-  geom_text(aes(x=as.POSIXct("2020-06-17 PDT"), family ="serif", label="\nEstablishment of the CHAZ", y=380),  colour=seattlePalette[2], text=element_text(size=11)) +
-  labs(y = "Daily Bike Count",
-       x = "Date",
-       title = "Seattle Bike Traffic in the Capitol Hill Autonomous Zone (CHAZ)",
-       subtitle = "Counter Data from Broadway Cycle Track North Of E Union ",
-       fill = "Crossing")+
-  theme(text = element_text(family = "serif"))
-
-
-```
-As the community responds after the death of George Floyd on May 25, 2020, we see a sharp drop in cyclist movement near this counter. When the autonomous zone is established on June 8, 2020, movement falls close to zero. Unfortunately, we can’t see the full picture with regards to pedestrian data at this location and time. However, the bike data shows a clear change in movement patterns and gives an indication of the major impacts of this event. 

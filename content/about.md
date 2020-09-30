@@ -1,5 +1,4 @@
 +++
-image = "images/odd.png"
 title = "About"
 type = "page"
 +++
