@@ -1,0 +1,203 @@
+---
+title: A/B Testing with Cookie Cats
+author: Lucia Darrow
+date: '2020-10-20'
+slug: a-b-testing-with-cookie-cats
+image: images/mobilegame.jpg
+categories:
+  - R
+tags: []
+---
+
+```{r setup, include=FALSE, echo=TRUE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r libraries}
+library(data.table)
+library(tidyverse)
+library(magrittr)
+library(boot)
+
+```
+
+## About the game
+
+[Cookie Cats](https://tactilegames.com/cookie-cats/) is a colorful mobile game, where the user's goal is to collect cookies (connect-4-style) and feed hungry cats. In this analysis, I use A/B testing to help decide at which level to place gates in the game. Gates are pauses in the game where the user must make an in-app purchase or wait a certain amount of time before progressing to the next level. Beyond providing additional revenue, these gates serve as rest time for the user, which in turn, increases and prolongs enjoyment. In this analysis, we'll answer the questions: **Shere should gates be placed in the Cookie Cats app? Should the gate be moved from level 30 to level 40?**
+
+The supporting mobile game data for this analysis was sourced from [DataCamp Projects](https://www.datacamp.com/projects/). I recommend checking out DataCamp courses and projects as an interactive way to learn Data Science. 
+
+## Getting started 
+
+I was curious about the look and feel of the game, so I installed Cookie Cats and played a few rounds. I noticed there were long load times between levels and the game is definitely geared towards children. Personally, I could not imagine playing 30-40 consecutive rounds in one sitting! 
+
+After familiarizing myself with the game, I turned to the data to explore some high level features. DataCamp provides these definitions for the data fields: 
+
+* <code>userid</code> - a unique number that identifies each player.
+* <code>version</code> - whether the player was put in the control group (<code>gate_30</code> - a gate at level 30) or the group with the moved gate (<code>gate_40</code> - a gate at level 40).
+* <code>sum_gamerounds</code> - the number of game rounds played by the player during the first 14 days after install.
+* <code>retention_1</code> - did the player come back and play <strong>1 day</strong> after installing?
+* <code>retention_7</code> - did the player come back and play <strong>7 days</strong> after installing?
+
+
+```{r readdata}
+cookieCats <- fread("../blogdata/cookie_cats.csv")
+
+```
+
+
+With these definitions in mind, let's take a look at the number of players that encountered a gate at level 30 vs those that encountered a gate at level 40:
+
+```{r exploredata}
+# summary(cookieCats)
+
+# Counting the number of players in each AB group.
+cookieCats %>%
+    select(version) %>%
+    group_by(version) %>%
+    tally()
+```
+
+Next, let's explore the average retention statistics by gate version:
+
+```{r, retentionByVersion}
+# Reviewing retention stats by version
+cookieCats %>% group_by(version) %>%
+  summarise(avg_retention_1 = mean(retention_1),
+            avg_retention_7 = mean(retention_7))
+```
+
+From this high level summary, it looks as if both 1- and 7-day retention are slightly higher for the game version with gates at level 30. What does the distribution of game rounds look like for the level 30 and level 40 version of the game? There are a few high-round players, but we'll limit to 100 rounds for this overview graphic:
+
+```{r}
+# Plotting number of rounds by user count for each gate version
+cookieCats %>%
+    group_by(sum_gamerounds, version) %>%
+    summarise(usercount = n()) %>%
+    filter(sum_gamerounds <= 100) %>%
+    ggplot(aes(x = sum_gamerounds, y = usercount, color = version)) +
+        geom_line() +
+        xlab(label = "Rounds (1 to 100)") +
+        ylab(label = "User count") + 
+  theme_minimal()
+```
+
+From this graphic, we can see the overall distributions are quite similiar, although it looks like the lines diverage around the rounds we are testing. Let's look into each retention metric in detail to see if there is a significant difference between the two.
+
+## 1-Day Retention
+
+There appears to be a slight difference between the 1-day average retention with the gate at level 30 (44.8%), in comparison to the gate at level 40 (44.2%). We'll use bootstrapping to explore this difference and to better understand uncertainty in the retention values. 
+
+```{r, bootstrap1dr}
+
+# Randomly sample with replacement to bootstrap the dataset -> boot_1dr
+bootstrapGame <- function(loop){
+  cookieCats %>% 
+  slice_sample(replace = TRUE, n = nrow(cookieCats)) %>% 
+  group_by(version) %>% 
+  summarize(avg_retention_1 = mean(retention_1)) %>%
+  pivot_wider(names_from = version, values_from = avg_retention_1)
+}
+
+# Run this process 500 times 
+bootstrapList <- lapply(seq.int(500), bootstrapGame)
+boot_1dr <- do.call(rbind, bootstrapList)
+
+# A Kernel Density Estimate plot of the bootstrap distributions
+boot_1dr %>%
+  as.data.frame() %>%
+  pivot_longer(cols = everything(), names_to = "version", values_to = "avg_retention_1") %>%
+    ggplot(aes(x = avg_retention_1, color = version, fill = version)) +
+  geom_density(alpha = 0.4) +
+  ggtitle('Bootstrapped 1-Day Retention Means for each AB-group (500 replications)') +
+  xlab('Mean 1-Day Retention') + 
+  ylab("Density") +
+  theme_minimal() 
+
+# Adding a column with the % difference between the two AB-groups
+boot_1dr %<>%
+    mutate(diff = ((gate_30 - gate_40)/gate_40)*100)
+
+# Ploting the bootstrap % difference
+boot_1dr %>%
+    ggplot(aes(x = diff)) +
+        geom_density(color = 'red', fill = 'red', alpha = 0.2) +
+        ggtitle("Percent Difference between gate_30 and gate_40 for 1-Day Retention") +
+        xlab(label = "% Difference") +
+        ylab(label = "Density") +
+        theme_minimal()
+
+```        
+
+The percent difference graphic shows that the most likely percent difference is around 1-2%, indicating better performance with the gate at level 30. Let's calculate the probability that the difference is above 0%:
+   
+```{r}        
+# Calculating the probability that 1-day retention is greater when the gate is at level 30
+boot_1dr %>%
+    mutate(gate_30_hgr = ifelse(diff > 0, 1, 0)) %>%
+    summarise_all(mean) %>%
+    select(gate_30_hgr)
+
+```
+
+Having played a few rounds of the game, I recognize that both level 30 and level 40 would take a fairly long time to reach. With that in mind, 7-day retention may be a better metric for this particular question. Let's explore the difference using 7-days time. 
+
+## 7-Day Retention
+
+Overall, 7-day retention is lower for both versions of the game. This makes sense as fewer players will continue playing for a longer duration of time. As we saw with 1-day retention, there appears to be a slight difference between the 7-day average retention with the gate at level 30 (19.0%), in comparison to the gate at level 40 (18.2%). We'll use bootstrapping to explore this difference and to better understand uncertainty in the retention values. 
+
+```{r, bootstrap7dr}
+
+# Randomly sample with replacement to bootstrap the dataset -> boot_1dr
+bootstrapGame <- function(loop){
+  cookieCats %>% 
+  slice_sample(replace = TRUE, n = nrow(cookieCats)) %>% 
+  group_by(version) %>% 
+  summarize(avg_retention_7 = mean(retention_7)) %>%
+  pivot_wider(names_from = version, values_from = avg_retention_7)
+}
+
+# Run this process 500 times 
+bootstrapList <- lapply(seq.int(500), bootstrapGame)
+boot_7dr <- do.call(rbind, bootstrapList)
+
+# A Kernel Density Estimate plot of the bootstrap distributions
+boot_7dr %>%
+  as.data.frame() %>%
+  pivot_longer(cols = everything(), names_to = "version", values_to = "avg_retention_7") %>%
+    ggplot(aes(x = avg_retention_7, color = version, fill = version)) +
+  geom_density(alpha = 0.4) +
+  ggtitle('Bootstrapped 1-Day Retention Means for each AB-group (500 replications)') +
+  xlab('Mean 7-Day Retention') + 
+  ylab("Density") +
+  theme_minimal() 
+
+# Adding a column with the % difference between the two AB-groups
+boot_7dr %<>%
+    mutate(diff = ((gate_30 - gate_40)/gate_40)*100)
+
+# Ploting the bootstrap % difference
+boot_7dr %>%
+    ggplot(aes(x = diff)) +
+        geom_density(color = 'red', fill = 'red', alpha = 0.2) +
+        ggtitle("Percent Difference between gate_30 and gate_40 for 7-Day Retention") +
+        xlab(label = "% Difference") +
+        ylab(label = "Density") +
+        theme_minimal()
+
+```        
+
+Here the percent difference graphic shows that the most likely percent difference is around 3-5%, again indicating better performance with the gate at level 30. Let's calculate the probability that the difference is above 0%:
+
+```{r}        
+# Calculating the probability that 1-day retention is greater when the gate is at level 30
+boot_7dr %>%
+    mutate(gate_30_hgr = ifelse(diff > 0, 1, 0)) %>%
+    summarise_all(mean) %>%
+    select(gate_30_hgr)
+
+```
+
+The bootstrap result tells us that there is strong evidence that 7-day retention is higher when the gate is at level 30 than when it is at level 40.  If we want to keep retention high — both 1-day and 7-day retention — we should not move the gate from level 30 to level 40. There are, of course, other metrics we could look at, like the number of game rounds played or how much in-game purchases are made by the two AB-groups, but retention is one of the most important metrics. If we don’t retain our player base, it doesn’t matter how much money they spend in-game. 
+
+While it is a bit counterintuitive that placing the gate earlier would increase retention, this result aligns with theory surrounding game play: players are more satisfied when they take breaks from a mobile game. 
