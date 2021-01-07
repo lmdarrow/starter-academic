@@ -1,0 +1,181 @@
+---
+title: Outlier Detection with UCI Wines
+author: Lucia Darrow
+date: '2021-12-04'
+slug: outlier-detection-wines
+image: images/wines.jpg
+categories:
+  - R
+tags: []
+---
+
+The wine quality dataset is a classic machine learning dataset available on the UCI data archive. In this post, I'll test a few approaches for outlier detection using the white vinho verde wine samples. These were provided by the Viticulture Commission of the Vinho Verde Region in Portugal in 2009. 
+
+```{r setup, include=FALSE, echo=TRUE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align="center")
+
+```
+
+```{r libraries}
+library(data.table)
+library(tidyverse)
+library(magrittr)
+library(FNN)
+library(dbscan)
+```
+
+```{r importdata}
+
+# retrieve data from the UCI ML archive
+wines <- read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv", header = TRUE, sep = ";")
+
+# Set the response variable to a factor
+wines$quality %<>% as.factor()
+
+```
+
+### Data Exploration
+
+First let's take a look at the structure of the data. There are 12 variables: 11 of these provide the results of physicochemical tests, while the *quality* field provides a rating for the wine. If we were to create a classification model using this data, quality would be our response variable. 
+
+<!-- https://rstudio-pubs-static.s3.amazonaws.com/175762_83cf2d7b322c4c63bf9ba2487b79e77e.html -->
+<!-- https://www.kaggle.com/semavasyliev/outliers-in-the-wine-quality-dataset -->
+<!-- https://medium.com/@shreyasrivastav26/exploratory-data-analysis-on-wine-data-set-46ff17a42cd4 -->
+<!-- https://rpubs.com/garrym3k/175762 -->
+<!-- https://davidburn.github.io/research/outlier-detection/ -->
+
+```{r, structure}
+
+# Explore the structure of the wine dataset
+str(wines)
+
+```
+
+The structure of the dataset provides the number of rows and columns as well as the datatypes that are found in the wines dataset. To get a better picture of the shape of the individual variables, let's plot them in histograms:
+
+```{r, distribution}
+
+# Create faceted set of histograms
+wines %>%
+  keep(is.numeric) %>%
+  gather() %>%
+  ggplot(aes(value)) +
+    facet_wrap(~ key, scales = "free") +
+    geom_histogram(fill = "darkolivegreen3") +
+  theme_minimal() +
+  theme(axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank()) +
+  ggtitle("Distribution of Physicochemical Properties of Portuguese Wines") +
+  xlab("Values") +
+  ylab("Count")
+
+```
+The histogram plot gives us an idea of the shape of each variable: most of the variables appear to be skewed and not normally distributed. In several of the plots, there appear to be potential outliers. To get a better look at these points, we can use a boxplot. 
+
+### Outlier Detection with IQR
+
+The boxplot is another way to look at the distribution of a variable, focusing on five summary statistics: the median (the center line), the 25th and 75th percentiles (the hinges), and the range from the hinges to the point nearest 1.5 * inter-quartile range (the whiskers). We're interested in points that lie beyond the whiskers, which may be potential outliers. 
+
+```{r}
+wines %>% 
+  pivot_longer(-quality, names_to = "field", values_to = "value") %>% 
+  ggplot(aes(value)) + 
+  geom_boxplot(alpha = 0.8) +
+  facet_wrap(~field, scales = "free") +
+  theme_minimal() +
+  theme(axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()) +
+  ggtitle("Boxplot Representation of Physicochemical Properties of Portuguese Wines") +
+  xlab("Value")
+
+```
+
+It looks like there are quite a few potential outliers in this data in several fields. Let's take a look at the most extreme point in the residual sugar column, with a value of 65.80 g/L. I'm not an expert in the chemical attributes in wine, so I used this online resource as a reference for this variable:
+
+![Residual Sugar in Wines from Wine Folly](Residual-Sugar-in-wine-folly.PNG){width=50%}
+
+Based on this graphic, most of the wines in this dataset fall in the bone dry - dry categories. The highest data point in this set may be a moscato or riesling in the sweet wines category. While this point wouldn't be considered extreme in a more diverse set of wines, it is likely an outlier for this specific set of dry Portuguese wines. 
+
+For the next set of outlier detection methods, we'll focus on the relationship between two variables: pH and alcohol. 
+
+```{r}
+wines %<>% select(pH, alcohol)
+
+# Scatterplot of wine pH against alcohol
+wines %>% 
+  ggplot(aes(alcohol, pH)) +
+  geom_jitter(alpha = 0.4)  +
+  theme_minimal() +
+  ggtitle("pH and Alcohol Content of Portuguese Wines")
+
+```
+
+### Distance Based Outlier Detection
+
+Sometimes we may want to look for outliers among several features in a dataset. To do so, we'll look at two methods: distance based and density based detection. For distance based detection, the k-nearest neighbor (kNN) distance score provides a measure of how isolated a point is from nearby points. In this measure, larger values are more likely to indicate an anomaly. In order to apply this method, data should first be scaled to avoid sensitivity to the scales of individual variables.
+
+```{r, echo = TRUE}
+
+# Calculate the 5 nearest neighbors distance matrix
+wine_nn <- get.knn(scale(wines), k = 5)
+
+# Create score by averaging distances 
+wine_nnd <- rowMeans(wine_nn$nn.dist)
+
+# Append the kNN distance score to the wines dataset
+wines$score <- wine_nnd
+
+```
+
+A scatterplot allows us to visualize the results of the kNN algorithm. Points that are larger carry a higher kNN score and are more likely anomalies. 
+
+```{r}
+# Scatterplot showing pH, alcohol and kNN score
+wines %>% 
+  ggplot(aes(alcohol, pH)) +
+  geom_jitter(aes(color = sqrt(score), size = sqrt(score)), alpha = 0.8)  +
+  scale_colour_gradientn(colours = terrain.colors(10)) + 
+  scale_size_continuous(range = c(.1,2.5)) +
+  theme_minimal() +
+  ggtitle("kNN Results: pH and Alcohol Content of Portuguese Wines") +
+  guides(color = FALSE, size=guide_legend(title="Sqrt of kNN \n Score")) 
+
+```
+The kNN results signal points that are far from their nearest neighbors, often global anomalies. However, this doesn't capture points that are local anomalies.
+
+### Density Based Outlier Detection
+
+The Local Outlier Factor (LOF) of a point is the average density around the k nearest neighbors of the point divided by the density around the point itself. This means a high LOF score (greater than one) indicates nearby points are more densely packed than the point of interest, indicating a potential local outlier. 
+
+In the code below, the *lof()* function from the dbscan package is used to calculated the LOF for each point in the dataset. 
+
+```{r lof}
+
+# Calculate the lof score and append to the wines dataset
+wines$score <- lof(scale(wines), k = 5)
+
+```
+
+Similar to the kNN results, we can plot the LOF scores in a scatterplot to visualize local outliers. 
+
+```{r}
+
+wines %>% 
+  ggplot(aes(alcohol, pH)) +
+  geom_jitter(aes(color = score, size = score), alpha = 0.8)  +
+  scale_colour_gradientn(colours = terrain.colors(10)) + 
+  scale_size_continuous(range = c(.1,2.5)) +  
+  theme_minimal() +
+  ggtitle("Local Outlier Factor (LOF)")  +
+  ggtitle("LOF Results: pH and Alcohol Content of Portuguese Wines") +
+  guides(color = FALSE, size=guide_legend(title="LOF Score"))
+
+```
+
+This plot paints a very different picture of what points we may want to consider as outliers. In practice, we would probably want to explore anomalous points indicated by both of these methods. 
+
+In this post, I explored several methods for outlier detection. For univariate data, I used visual inspection of distributions and the IQR to look into extreme points. For bivariate data, I used both a distance approach (kNN) and a density approach (LOF) to uncover extreme behavior in the dataset. 
+
+
+
