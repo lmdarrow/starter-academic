@@ -6,7 +6,36 @@
     <description>Recent content on Lucia Darrow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Outlier Detection with UCI Wines</title>
+      <link>/post/outlier-detection-wines/</link>
+      <pubDate>Sat, 04 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/outlier-detection-wines/</guid>
+      <description>The wine quality dataset is a classic machine learning dataset available on the UCI data archive. In this post, I’ll test a few approaches for outlier detection using the white vinho verde wine samples. These were provided by the Viticulture Commission of the Vinho Verde Region in Portugal in 2009.
+Data ExplorationFirst let’s take a look at the structure of the data. There are 12 variables: 11 of these provide the results of physicochemical tests, while the quality field provides a rating for the wine.</description>
+    </item>
+    
+    <item>
+      <title>What makes an analytics project successful?</title>
+      <link>/post/analytics-implementation-success/</link>
+      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/analytics-implementation-success/</guid>
+      <description>Note: This is part of a series of posts on analytics change management.
+Estimates of analytics project success rates are generally quite low. In 2019, a Gartner report predicted: &amp;ldquo;Through 2022, only 20% of analytic insights will deliver business outcomes&amp;rdquo; (White, 2019). More recent reports show continued struggle with implemenation of big data projects, citing problems with trust and integration (Henrion, 2019). In this series of blog posts, I&amp;rsquo;ll explore the key factors related to successful analytics project implementation.</description>
+    </item>
+    
+    <item>
+      <title>A/B Testing with Cookie Cats</title>
+      <link>/post/a-b-testing-with-cookie-cats/</link>
+      <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/a-b-testing-with-cookie-cats/</guid>
+      <description>About the gameCookie Cats is a colorful mobile game, where the user’s goal is to collect cookies (connect-4-style) and feed hungry cats. In this analysis, I use A/B testing to help decide at which level to place gates in the game. Gates are pauses in the game where the user must make an in-app purchase or wait a certain amount of time before progressing to the next level.</description>
+    </item>
+    
     <item>
       <title>Organizing a Data-Centric Hackathon</title>
       <link>/post/organizing-a-data-centric-hackathon/</link>
