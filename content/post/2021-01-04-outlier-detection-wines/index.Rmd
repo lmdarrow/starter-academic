@@ -1,7 +1,7 @@
 ---
 title: Outlier Detection with UCI Wines
 author: Lucia Darrow
-date: '2021-12-04'
+date: '2021-01-04'
 slug: outlier-detection-wines
 image: images/wines.jpg
 categories:

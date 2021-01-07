@@ -6,11 +6,11 @@
     <description>Recent content on Lucia Darrow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Outlier Detection with UCI Wines</title>
       <link>/post/outlier-detection-wines/</link>
-      <pubDate>Sat, 04 Dec 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/outlier-detection-wines/</guid>
       <description>The wine quality dataset is a classic machine learning dataset available on the UCI data archive. In this post, I’ll test a few approaches for outlier detection using the white vinho verde wine samples. These were provided by the Viticulture Commission of the Vinho Verde Region in Portugal in 2009.
