@@ -1,0 +1,186 @@
+"","country","country_name","type","level","2016","2017","2018"
+"1","BE","Belgium","Total net production","Total",82520,82948.5,69212.347
+"2","BE","Belgium","Imports","Total",14648,14189.4,21635.908
+"3","BE","Belgium","Exports","Total",8465,8167.8,4308.347
+"4","BE","Belgium","Energy absorbed by pumping","Total",1475,1485.4,1347.901
+"5","BE","Belgium","Energy supplied","Total",87228,87484.7,85192.007
+"6","BG","Bulgaria","Total net production","Total",41221,41351.303,41705
+"7","BG","Bulgaria","Imports","Total",4568,3705.423,2223
+"8","BG","Bulgaria","Exports","Total",10940,9185.794,10030
+"9","BG","Bulgaria","Energy absorbed by pumping","Total",918,949.527,425
+"10","BG","Bulgaria","Energy supplied","Total",33931,34921.405,33473
+"11","CZ","Czechia","Total net production","Total",76398,79885.766,81967.627
+"12","CZ","Czechia","Imports","Total",13817,15072,11573.411
+"13","CZ","Czechia","Exports","Total",24791,28108.9,25480.503
+"14","CZ","Czechia","Energy absorbed by pumping","Total",1570,1530.5,1372.884
+"15","CZ","Czechia","Energy supplied","Total",63854,65318.366,66687.651
+"16","DK","Denmark","Total net production","Total",29077.932,29653.682,28939.089
+"17","DK","Denmark","Imports","Total",14976.458,15218.109,15633.609
+"18","DK","Denmark","Exports","Total",9919.365,10655.394,10409.266
+"19","DK","Denmark","Energy absorbed by pumping","Total",0,0,0
+"20","DK","Denmark","Energy supplied","Total",34135.025,34216.397,34163.432
+"21","DE","Germany","Total net production","Total",614155,619059,571799.713
+"22","DE","Germany","Imports","Total",28338,27842,31701.359
+"23","DE","Germany","Exports","Total",78863,80301,80187.327
+"24","DE","Germany","Energy absorbed by pumping","Total",7497,8252,8347.706
+"25","DE","Germany","Energy supplied","Total",556133,558348,514966.039
+"26","EE","Estonia","Total net production","Total",10424,11234,10834.143
+"27","EE","Estonia","Imports","Total",3577,2281,3053
+"28","EE","Estonia","Exports","Total",5614,5015,4949.7
+"29","EE","Estonia","Energy absorbed by pumping","Total",0,0,0
+"30","EE","Estonia","Energy supplied","Total",8387,8500,8937.443
+"31","IE","Ireland","Total net production","Total",29689.24,30086.974,29234.886
+"32","IE","Ireland","Imports","Total",871.263,1116.408,1621.519
+"33","IE","Ireland","Exports","Total",1583.011,1794.91,1649.249
+"34","IE","Ireland","Energy absorbed by pumping","Total",532.404,398.643,499.328
+"35","IE","Ireland","Energy supplied","Total",28445.088,29009.829,28707.828
+"36","EL","Greece","Total net production","Total",50227,50589.215,50708.949
+"37","EL","Greece","Imports","Total",9833,8696,8705.56
+"38","EL","Greece","Exports","Total",1037,2459,2186.68
+"39","EL","Greece","Energy absorbed by pumping","Total",32,110,28.49
+"40","EL","Greece","Energy supplied","Total",58991,56716.215,57199.339
+"41","ES","Spain","Total net production","Total",264344,264918,261071.191
+"42","ES","Spain","Imports","Total",21845,23762,24017.905
+"43","ES","Spain","Exports","Total",14178,14593,12915.79
+"44","ES","Spain","Energy absorbed by pumping","Total",4819,3675,3197.636
+"45","ES","Spain","Energy supplied","Total",267192,270412,268975.67
+"46","FR","France","Total net production","Total",540767.954,538042.323,551685.823
+"47","FR","France","Imports","Total",19903,21134,12826.095
+"48","FR","France","Exports","Total",61404,61248,76094.985
+"49","FR","France","Energy absorbed by pumping","Total",6723.585,7104.325,7331.317
+"50","FR","France","Energy supplied","Total",492543.369,490823.998,481085.616
+"51","HR","Croatia","Total net production","Total",12284,11522.9,13256.54
+"52","HR","Croatia","Imports","Total",12398,12157.9,12692.329
+"53","HR","Croatia","Exports","Total",6867,5204.2,7292.953
+"54","HR","Croatia","Energy absorbed by pumping","Total",294,286.2,118.552
+"55","HR","Croatia","Energy supplied","Total",17521,18190.4,18537.364
+"56","IT","Italy","Total net production","Total",279702.622,285265.649,280234
+"57","IT","Italy","Imports","Total",43181,42894.881,47179
+"58","IT","Italy","Exports","Total",6154,5134.231,3270
+"59","IT","Italy","Energy absorbed by pumping","Total",2468,2478.162,2233
+"60","IT","Italy","Energy supplied","Total",314261.622,320548.137,321910
+"61","CY","Cyprus","Total net production","Total",4667.638,4778.28,4791.085
+"62","CY","Cyprus","Imports","Total",0,0,0
+"63","CY","Cyprus","Exports","Total",0,0,0
+"64","CY","Cyprus","Energy absorbed by pumping","Total",0,0,0
+"65","CY","Cyprus","Energy supplied","Total",4667.638,4778.28,4791.085
+"66","LV","Latvia","Total net production","Total",5927,7024.859,6500
+"67","LV","Latvia","Imports","Total",4828,4072.912,5172
+"68","LV","Latvia","Exports","Total",3795,4137.077,4264
+"69","LV","Latvia","Energy absorbed by pumping","Total",0,0,0
+"70","LV","Latvia","Energy supplied","Total",6960,6960.694,7408
+"71","LT","Lithuania","Total net production","Total",4051,3996.1,3183.095
+"72","LT","Lithuania","Imports","Total",11106,11926.2,12847.483
+"73","LT","Lithuania","Exports","Total",2831,3249,3215.07
+"74","LT","Lithuania","Energy absorbed by pumping","Total",790,799.1,726.32
+"75","LT","Lithuania","Energy supplied","Total",11536,11874.2,12089.188
+"76","LU","Luxembourg","Total net production","Total",2167.69,2204.738,2164.862
+"77","LU","Luxembourg","Imports","Total",7718.393,7566.69,7553.012
+"78","LU","Luxembourg","Exports","Total",1419.691,1388.648,1391.674
+"79","LU","Luxembourg","Energy absorbed by pumping","Total",1942.514,1833.679,1717.5
+"80","LU","Luxembourg","Energy supplied","Total",6523.878,6549.101,6608.7
+"81","HU","Hungary","Total net production","Total",29548,30676,29749.879
+"82","HU","Hungary","Imports","Total",17951,19803,18613.295
+"83","HU","Hungary","Exports","Total",5240,6925,4265.07
+"84","HU","Hungary","Energy absorbed by pumping","Total",0,0,0
+"85","HU","Hungary","Energy supplied","Total",42259,43554,44098.104
+"86","MT","Malta","Total net production","Total",807.16,1594.459,1888.398
+"87","MT","Malta","Imports","Total",1525,897.066,631.293
+"88","MT","Malta","Exports","Total",NA,35.699,10.551
+"89","MT","Malta","Energy absorbed by pumping","Total",0,0,0
+"90","MT","Malta","Energy supplied","Total",2332.16,2455.826,2509.14
+"91","NL","Netherlands","Total net production","Total",111032.253,113465.034,112551.371
+"92","NL","Netherlands","Imports","Total",24257.626,22457.715,24018
+"93","NL","Netherlands","Exports","Total",19343.254,18951.503,18157
+"94","NL","Netherlands","Energy absorbed by pumping","Total",0,0,0
+"95","NL","Netherlands","Energy supplied","Total",115946.625,116971.246,118412.371
+"96","AT","Austria","Total net production","Total",64860.87,67690.162,65587.792
+"97","AT","Austria","Imports","Total",26366.16,29362.427,28076.136
+"98","AT","Austria","Exports","Total",19206.889,22816.512,19129.33
+"99","AT","Austria","Energy absorbed by pumping","Total",4253.498,5610.607,5116.052
+"100","AT","Austria","Energy supplied","Total",67766.643,68625.47,69418.546
+"101","PL","Poland","Total net production","Total",152003,154869.344,154096.5
+"102","PL","Poland","Imports","Total",14017,13271,13815.803
+"103","PL","Poland","Exports","Total",12018,10984,8121.301
+"104","PL","Poland","Energy absorbed by pumping","Total",744,734.88,660.599
+"105","PL","Poland","Energy supplied","Total",153258,156421.464,159130.403
+"106","PT","Portugal","Total net production","Total",58862.052,57668.978,58085
+"107","PT","Portugal","Imports","Total",4616,5505.732,5668
+"108","PT","Portugal","Exports","Total",9701,8189.704,8326
+"109","PT","Portugal","Energy absorbed by pumping","Total",1520,2223.899,1565
+"110","PT","Portugal","Energy supplied","Total",52257.052,52761.107,53862
+"111","RO","Romania","Total net production","Total",60256,59355.43,58722
+"112","RO","Romania","Imports","Total",4177,4841.754,3695
+"113","RO","Romania","Exports","Total",9194,7735.38,6239
+"114","RO","Romania","Energy absorbed by pumping","Total",660,466.424,0
+"115","RO","Romania","Energy supplied","Total",54579,55995.38,56178
+"116","SI","Slovenia","Total net production","Total",15546,15396.876,15284.254
+"117","SI","Slovenia","Imports","Total",8359,9132.532,8930.238
+"118","SI","Slovenia","Exports","Total",9535,9648.192,9432.404
+"119","SI","Slovenia","Energy absorbed by pumping","Total",373,365.3,252.435
+"120","SI","Slovenia","Energy supplied","Total",13997,14515.916,14529.653
+"121","SK","Slovakia","Total net production","Total",24997,25692,23717
+"122","SK","Slovakia","Imports","Total",13249,15563,12427
+"123","SK","Slovakia","Exports","Total",10598,12535,8746
+"124","SK","Slovakia","Energy absorbed by pumping","Total",334,418,401
+"125","SK","Slovakia","Energy supplied","Total",27314,28302,26997
+"126","FI","Finland","Total net production","Total",66200,65038,67423.674
+"127","FI","Finland","Imports","Total",22110,22204,22548
+"128","FI","Finland","Exports","Total",3159,1779,2611
+"129","FI","Finland","Energy absorbed by pumping","Total",0,0,0
+"130","FI","Finland","Energy supplied","Total",85151,85463,87360.674
+"131","SE","Sweden","Total net production","Total",152531,160526,158287.088
+"132","SE","Sweden","Imports","Total",14287,11896,14441.815
+"133","SE","Sweden","Exports","Total",26022,30888,31671.103
+"134","SE","Sweden","Energy absorbed by pumping","Total",170,36,56.301
+"135","SE","Sweden","Energy supplied","Total",140626,141498,141001.499
+"136","UK",NA,"Total net production","Total",324274.434,323439.536,317375.629
+"137","UK",NA,"Imports","Total",20017.923,18166.98,21332.415
+"138","UK",NA,"Exports","Total",2272.866,3407.049,2224.764
+"139","UK",NA,"Energy absorbed by pumping","Total",4014.34,3859.19,3390.866
+"140","UK",NA,"Energy supplied","Total",338005.151,334340.277,333092.414
+"141","NO","Norway","Total net production","Total",149067,148642,146845.187
+"142","NO","Norway","Imports","Total",5740,6111,8339.724
+"143","NO","Norway","Exports","Total",22151,21276,18488.911
+"144","NO","Norway","Energy absorbed by pumping","Total",1427,1653,1021.492
+"145","NO","Norway","Energy supplied","Total",131229,131824,135674.508
+"146","ME","Montenegro","Total net production","Total",3023,2363.8,3743
+"147","ME","Montenegro","Imports","Total",1210,1536.9,7106
+"148","ME","Montenegro","Exports","Total",906,416.7,868
+"149","ME","Montenegro","Energy absorbed by pumping","Total",0,0,0
+"150","ME","Montenegro","Energy supplied","Total",3327,3484,9981
+"151","MK","North Macedonia","Total net production","Total",5284.253,5226.865,5203.736
+"152","MK","North Macedonia","Imports","Total",2190.606,2293.571,7261.253
+"153","MK","North Macedonia","Exports","Total",159.853,311.026,5341.489
+"154","MK","North Macedonia","Energy absorbed by pumping","Total",0,0,0
+"155","MK","North Macedonia","Energy supplied","Total",7315.006,7209.41,7123.5
+"156","AL","Albania","Total net production","Total",7136,4497.807,8596.537
+"157","AL","Albania","Imports","Total",0,2914.628,1771.742
+"158","AL","Albania","Exports","Total",42,0,2685.047
+"159","AL","Albania","Energy absorbed by pumping","Total",0,0,0
+"160","AL","Albania","Energy supplied","Total",7094,7412.435,7683.232
+"161","RS","Serbia","Total net production","Total",36628,34298.552,35241.186
+"162","RS","Serbia","Imports","Total",5068,6549.189,6400.007
+"163","RS","Serbia","Exports","Total",6990,5724.139,6293.513
+"164","RS","Serbia","Energy absorbed by pumping","Total",1029,938.05,1067.938
+"165","RS","Serbia","Energy supplied","Total",33677,34185.552,34279.742
+"166","TR","Turkey","Total net production","Total",261937,284257.519,289282.578
+"167","TR","Turkey","Imports","Total",6330,2728.268,2466.008
+"168","TR","Turkey","Exports","Total",1452,3303.673,3073.58
+"169","TR","Turkey","Energy absorbed by pumping","Total",0,0,0
+"170","TR","Turkey","Energy supplied","Total",266815,283682.114,288675.006
+"171","BA","Bosnia & Herzegovina","Total net production","Total",16609,15239,7502.427
+"172","BA","Bosnia & Herzegovina","Imports","Total",3084,3346,1487.586
+"173","BA","Bosnia & Herzegovina","Exports","Total",6841,5187,3820.822
+"174","BA","Bosnia & Herzegovina","Energy absorbed by pumping","Total",0,266,50.591
+"175","BA","Bosnia & Herzegovina","Energy supplied","Total",12852,13132,5118.6
+"176","UA","Ukraine","Total net production","Total",151889,144905.8,159072.5
+"177","UA","Ukraine","Imports","Total",77,50,1587
+"178","UA","Ukraine","Exports","Total",3830,5226,4639.3
+"179","UA","Ukraine","Energy absorbed by pumping","Total",1633,1574.2,0
+"180","UA","Ukraine","Energy supplied","Total",146503,138155.6,156020.2
+"181","GE","Georgia","Total net production","Total",11365,11315.8,12148.514
+"182","GE","Georgia","Imports","Total",1329,1751.2,1522.2
+"183","GE","Georgia","Exports","Total",1409,939.7,602.038
+"184","GE","Georgia","Energy absorbed by pumping","Total",0,0,214.946
+"185","GE","Georgia","Energy supplied","Total",11285,12127.3,12853.73

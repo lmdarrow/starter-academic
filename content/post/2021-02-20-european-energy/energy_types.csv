@@ -1,0 +1,297 @@
+"","country","country_name","type","level","2016","2017","2018"
+"1","BE","Belgium","Conventional thermal","Level 1",30728,31316,30092.635
+"2","BE","Belgium","Nuclear","Level 1",41430,40128.5,26995.628
+"3","BE","Belgium","Hydro","Level 1",1476,1360.9,1239.248
+"4","BE","Belgium","Pumped hydro power","Level 2",1110,1093.2,983.19
+"5","BE","Belgium","Wind","Level 1",5340,6387.9,7177.346
+"6","BE","Belgium","Solar","Level 1",3070,3264.3,3488.979
+"7","BE","Belgium","Geothermal","Level 1",0,0,0
+"8","BE","Belgium","Other","Level 1",476,490.9,218.509
+"9","BG","Bulgaria","Conventional thermal","Level 1",18909,20234.209,19334
+"10","BG","Bulgaria","Nuclear","Level 1",14932,14718.368,15290
+"11","BG","Bulgaria","Hydro","Level 1",4535,3458.015,4690
+"12","BG","Bulgaria","Pumped hydro power","Level 2",619,603.713,987
+"13","BG","Bulgaria","Wind","Level 1",1425,1504.063,1326
+"14","BG","Bulgaria","Solar","Level 1",1386,1402.766,1043
+"15","BG","Bulgaria","Geothermal","Level 1",0,0,0
+"16","BG","Bulgaria","Other","Level 1",34,33.882,22
+"17","CZ","Czechia","Conventional thermal","Level 1",47817,47246.628,48042.915
+"18","CZ","Czechia","Nuclear","Level 1",22727,26785.6,28255.421
+"19","CZ","Czechia","Hydro","Level 1",3169,3007.403,2650.153
+"20","CZ","Czechia","Pumped hydro power","Level 2",1186,1155.492,1037.317
+"21","CZ","Czechia","Wind","Level 1",488,581.917,600.67
+"22","CZ","Czechia","Solar","Level 1",2110,2168.74,2317.645
+"23","CZ","Czechia","Geothermal","Level 1",0,0,0
+"24","CZ","Czechia","Other","Level 1",87,95.478,100.826
+"25","DK","Denmark","Conventional thermal","Level 1",15533.149,14104.326,14072.337
+"26","DK","Denmark","Nuclear","Level 1",0,0,0
+"27","DK","Denmark","Hydro","Level 1",19.272,17.871,14.929
+"28","DK","Denmark","Pumped hydro power","Level 2",0,0,0
+"29","DK","Denmark","Wind","Level 1",12781.731,14780,13898.806
+"30","DK","Denmark","Solar","Level 1",743.78,751.485,952.973
+"31","DK","Denmark","Geothermal","Level 1",0,0,0
+"32","DK","Denmark","Other","Level 1",0,0,0.044
+"33","DE","Germany","Conventional thermal","Level 1",390141,376128,320437.701
+"34","DE","Germany","Nuclear","Level 1",80038,72155,72274.133
+"35","DE","Germany","Hydro","Level 1",25690,25888,20041.878
+"36","DE","Germany","Pumped hydro power","Level 2",5451,5910,6661.083
+"37","DE","Germany","Wind","Level 1",78218,103707,112174
+"38","DE","Germany","Solar","Level 1",38098,39401,46184
+"39","DE","Germany","Geothermal","Level 1",165,157,165.25
+"40","DE","Germany","Other","Level 1",1805,1623,522.751
+"41","EE","Estonia","Conventional thermal","Level 1",9795,10485,10170.043
+"42","EE","Estonia","Nuclear","Level 1",0,0,0
+"43","EE","Estonia","Hydro","Level 1",35,26,18.2
+"44","EE","Estonia","Pumped hydro power","Level 2",0,0,0
+"45","EE","Estonia","Wind","Level 1",594,723,645.9
+"46","EE","Estonia","Solar","Level 1",0,0,0
+"47","EE","Estonia","Geothermal","Level 1",0,0,0
+"48","EE","Estonia","Other","Level 1",0,0,0
+"49","IE","Ireland","Conventional thermal","Level 1",22571.711,21745.666,19963.734
+"50","IE","Ireland","Nuclear","Level 1",0,0,0
+"51","IE","Ireland","Hydro","Level 1",962.861,885.765,921.979
+"52","IE","Ireland","Pumped hydro power","Level 2",288.676,201.184,234.936
+"53","IE","Ireland","Wind","Level 1",6148.508,7444.742,8349.172
+"54","IE","Ireland","Solar","Level 1",6.16,10.801,0
+"55","IE","Ireland","Geothermal","Level 1",0,0,0
+"56","IE","Ireland","Other","Level 1",0,0,0
+"57","EL","Greece","Conventional thermal","Level 1",35586,37021.751,34803.244
+"58","EL","Greece","Nuclear","Level 1",0,0,0
+"59","EL","Greece","Hydro","Level 1",5565,4039,5802.417
+"60","EL","Greece","Pumped hydro power","Level 2",22,77.259,636.1
+"61","EL","Greece","Wind","Level 1",5146,5536.987,6300.26
+"62","EL","Greece","Solar","Level 1",3930,3991.477,3792.038
+"63","EL","Greece","Geothermal","Level 1",0,0,0
+"64","EL","Greece","Other","Level 1",0,0,10.99
+"65","ES","Spain","Conventional thermal","Level 1",108210,126885,110084.238
+"66","ES","Spain","Nuclear","Level 1",56100,55540,53270.8
+"67","ES","Spain","Hydro","Level 1",39180,20708,36083.636
+"68","ES","Spain","Pumped hydro power","Level 2",3410,2249,2009.408
+"69","ES","Spain","Wind","Level 1",47712,47929,49495.207
+"70","ES","Spain","Solar","Level 1",13051,13778,12137.315
+"71","ES","Spain","Geothermal","Level 1",0,0,0
+"72","ES","Spain","Other","Level 1",91,78,0
+"73","FR","France","Conventional thermal","Level 1",60607.854,68922.949,53956.44
+"74","FR","France","Nuclear","Level 1",384008.125,379093.955,393153.254
+"75","FR","France","Hydro","Level 1",64879.956,54432.864,68706.552
+"76","FR","France","Pumped hydro power","Level 2",4786.979,5070.791,9082.043
+"77","FR","France","Wind","Level 1",21472.916,24710.749,26134.02
+"78","FR","France","Solar","Level 1",8657.27,9572.843,9651.478
+"79","FR","France","Geothermal","Level 1",87.933,119.937,84.084
+"80","FR","France","Other","Level 1",559.515,673.71,0
+"81","HR","Croatia","Conventional thermal","Level 1",4241,4808,4155.654
+"82","HR","Croatia","Nuclear","Level 1",0,0,0
+"83","HR","Croatia","Hydro","Level 1",6967,5437.8,7681.337
+"84","HR","Croatia","Pumped hydro power","Level 2",205,200.3,583.988
+"85","HR","Croatia","Wind","Level 1",1010,1198.4,1350.356
+"86","HR","Croatia","Solar","Level 1",66,78.7,69.193
+"87","HR","Croatia","Geothermal","Level 1",0,0,0
+"88","HR","Croatia","Other","Level 1",0,0,0
+"89","IT","Italy","Conventional thermal","Level 1",190121,199722.444,185046
+"90","IT","Italy","Nuclear","Level 1",0,0,0
+"91","IT","Italy","Hydro","Level 1",43784.622,37556.721,49275
+"92","IT","Italy","Pumped hydro power","Level 2",1825.204,1825.96,1632
+"93","IT","Italy","Wind","Level 1",17523,17565.332,17318
+"94","IT","Italy","Solar","Level 1",21757,24016.821,22887
+"95","IT","Italy","Geothermal","Level 1",5867,5821.46,5708
+"96","IT","Italy","Other","Level 1",650,582.871,0
+"97","CY","Cyprus","Conventional thermal","Level 1",4295,4394.819,4380.143
+"98","CY","Cyprus","Nuclear","Level 1",0,0,0
+"99","CY","Cyprus","Hydro","Level 1",0,0,0
+"100","CY","Cyprus","Pumped hydro power","Level 2",0,0,0
+"101","CY","Cyprus","Wind","Level 1",226.701,211.448,220.613
+"102","CY","Cyprus","Solar","Level 1",145.937,172.013,190.329
+"103","CY","Cyprus","Geothermal","Level 1",0,0,0
+"104","CY","Cyprus","Other","Level 1",0,0,0
+"105","LV","Latvia","Conventional thermal","Level 1",3277,2520.383,3962
+"106","LV","Latvia","Nuclear","Level 1",0,0,0
+"107","LV","Latvia","Hydro","Level 1",2523,4355.513,2418
+"108","LV","Latvia","Pumped hydro power","Level 2",0,0,0
+"109","LV","Latvia","Wind","Level 1",127,148.523,120
+"110","LV","Latvia","Solar","Level 1",0,0.44,0
+"111","LV","Latvia","Geothermal","Level 1",0,0,0
+"112","LV","Latvia","Other","Level 1",0,0,0
+"113","LT","Lithuania","Conventional thermal","Level 1",1566,1165.3,802.835
+"114","LT","Lithuania","Nuclear","Level 1",0,0,0
+"115","LT","Lithuania","Hydro","Level 1",1027,1164.6,940.677
+"116","LT","Lithuania","Pumped hydro power","Level 2",577,567.5,513.684
+"117","LT","Lithuania","Wind","Level 1",1130,1356.2,1136.357
+"118","LT","Lithuania","Solar","Level 1",66,67,80.014
+"119","LT","Lithuania","Geothermal","Level 1",0,0,0
+"120","LT","Lithuania","Other","Level 1",262,243,223.212
+"121","LU","Luxembourg","Conventional thermal","Level 1",449.564,450.167,463.132
+"122","LU","Luxembourg","Nuclear","Level 1",0,0,0
+"123","LU","Luxembourg","Hydro","Level 1",1516.352,1411.286,1326.329
+"124","LU","Luxembourg","Pumped hydro power","Level 2",1404.667,1329.398,1237.554
+"125","LU","Luxembourg","Wind","Level 1",101.486,234.823,263.708
+"126","LU","Luxembourg","Solar","Level 1",100.288,108.462,111.693
+"127","LU","Luxembourg","Geothermal","Level 1",0,0,0
+"128","LU","Luxembourg","Other","Level 1",0,0,0
+"129","HU","Hungary","Conventional thermal","Level 1",13156,14096,13489.644
+"130","HU","Hungary","Nuclear","Level 1",15162,15206,14854.662
+"131","HU","Hungary","Hydro","Level 1",253,214,215.862
+"132","HU","Hungary","Pumped hydro power","Level 2",0,0,0
+"133","HU","Hungary","Wind","Level 1",665,737,589.406
+"134","HU","Hungary","Solar","Level 1",241,346,594.258
+"135","HU","Hungary","Geothermal","Level 1",0,1,6.047
+"136","HU","Hungary","Other","Level 1",71,76,0
+"137","MT","Malta","Conventional thermal","Level 1",680,1439.156,1716.49
+"138","MT","Malta","Nuclear","Level 1",0,0,0
+"139","MT","Malta","Hydro","Level 1",0,0,0
+"140","MT","Malta","Pumped hydro power","Level 2",0,0,0
+"141","MT","Malta","Wind","Level 1",0,0.058,0
+"142","MT","Malta","Solar","Level 1",127.16,155.245,0
+"143","MT","Malta","Geothermal","Level 1",0,0,0
+"144","MT","Malta","Other","Level 1",0,0,0
+"145","NL","Netherlands","Conventional thermal","Level 1",97271.8,97231.607,94450
+"146","NL","Netherlands","Nuclear","Level 1",3750,3277.664,3313.371
+"147","NL","Netherlands","Hydro","Level 1",100.079,60.757,86
+"148","NL","Netherlands","Pumped hydro power","Level 2",0,0,0
+"149","NL","Netherlands","Wind","Level 1",8170.462,10568.797,12279
+"150","NL","Netherlands","Solar","Level 1",1601.811,2204.344,2423
+"151","NL","Netherlands","Geothermal","Level 1",0,0,0
+"152","NL","Netherlands","Other","Level 1",138.101,121.865,0
+"153","AT","Austria","Conventional thermal","Level 1",18065.01,20135.846,16350.754
+"154","AT","Austria","Nuclear","Level 1",0,0,0
+"155","AT","Austria","Hydro","Level 1",40772.188,40098.554,37217.295
+"156","AT","Austria","Pumped hydro power","Level 2",2883.861,3683.851,13397.582
+"157","AT","Austria","Wind","Level 1",4968.262,6239.497,5857.059
+"158","AT","Austria","Solar","Level 1",1040.698,1204.311,0
+"159","AT","Austria","Geothermal","Level 1",0.02,0.086,0
+"160","AT","Austria","Other","Level 1",14.692,11.868,6162.686
+"161","PL","Poland","Conventional thermal","Level 1",136945,137068.099,138957.387
+"162","PL","Poland","Nuclear","Level 1",0,0,0
+"163","PL","Poland","Hydro","Level 1",2591,2999.86,2353.336
+"164","PL","Poland","Pumped hydro power","Level 2",474,448.193,402.36
+"165","PL","Poland","Wind","Level 1",12279,14574.192,12487.345
+"166","PL","Poland","Solar","Level 1",124,165.463,298.432
+"167","PL","Poland","Geothermal","Level 1",0,0,0
+"168","PL","Poland","Other","Level 1",64,61.73,0
+"169","PT","Portugal","Conventional thermal","Level 1",28702,36882.017,30887
+"170","PT","Portugal","Nuclear","Level 1",0,0,0
+"171","PT","Portugal","Hydro","Level 1",16794.113,7489.938,13489
+"172","PT","Portugal","Pumped hydro power","Level 2",1186,1699.948,3120
+"173","PT","Portugal","Wind","Level 1",12343.336,12112.464,12530
+"174","PT","Portugal","Solar","Level 1",870.603,991.546,974
+"175","PT","Portugal","Geothermal","Level 1",152,193.007,205
+"176","PT","Portugal","Other","Level 1",0,0,0
+"177","RO","Romania","Conventional thermal","Level 1",23304,24923.065,22611
+"178","RO","Romania","Nuclear","Level 1",10366,10557.906,10443
+"179","RO","Romania","Hydro","Level 1",18239,14687.531,17653
+"180","RO","Romania","Pumped hydro power","Level 2",507,357.788,0
+"181","RO","Romania","Wind","Level 1",6527,7331.254,6261
+"182","RO","Romania","Solar","Level 1",1820,1855.674,1754
+"183","RO","Romania","Geothermal","Level 1",0,0,0
+"184","RO","Romania","Other","Level 1",0,0,0
+"185","SI","Slovenia","Conventional thermal","Level 1",5121,5054.64,4703.068
+"186","SI","Slovenia","Nuclear","Level 1",5431,5967.827,5489.906
+"187","SI","Slovenia","Hydro","Level 1",4721,4085.015,4831.147
+"188","SI","Slovenia","Pumped hydro power","Level 2",278,271.498,187.919
+"189","SI","Slovenia","Wind","Level 1",6,5.716,6.02
+"190","SI","Slovenia","Solar","Level 1",267,283.678,254.113
+"191","SI","Slovenia","Geothermal","Level 1",0,0,0
+"192","SI","Slovenia","Other","Level 1",0,0,0
+"193","SK","Slovakia","Conventional thermal","Level 1",6065,6417,5426
+"194","SK","Slovakia","Nuclear","Level 1",13732,14016,13807
+"195","SK","Slovakia","Hydro","Level 1",4549,4620,3838
+"196","SK","Slovakia","Pumped hydro power","Level 2",247,299,293
+"197","SK","Slovakia","Wind","Level 1",6,6,5
+"198","SK","Slovakia","Solar","Level 1",533,506,586
+"199","SK","Slovakia","Geothermal","Level 1",0,0,0
+"200","SK","Slovakia","Other","Level 1",112,127,55
+"201","FI","Finland","Conventional thermal","Level 1",24950,23681,26425
+"202","FI","Finland","Nuclear","Level 1",22280,21574,21890
+"203","FI","Finland","Hydro","Level 1",15634,14610,13158.674
+"204","FI","Finland","Pumped hydro power","Level 2",0,0,0
+"205","FI","Finland","Wind","Level 1",3068,4795,5861
+"206","FI","Finland","Solar","Level 1",19,43,89
+"207","FI","Finland","Geothermal","Level 1",0,0,0
+"208","FI","Finland","Other","Level 1",249,335,0
+"209","SE","Sweden","Conventional thermal","Level 1",14621,15003,14869.986
+"210","SE","Sweden","Nuclear","Level 1",60524,63008,65801.155
+"211","SE","Sweden","Hydro","Level 1",61764,64676,60977.602
+"212","SE","Sweden","Pumped hydro power","Level 2",119,25,0
+"213","SE","Sweden","Wind","Level 1",15479,17609,16638.345
+"214","SE","Sweden","Solar","Level 1",143,230,0
+"215","SE","Sweden","Geothermal","Level 1",0,0,0
+"216","SE","Sweden","Other","Level 1",0,0,0
+"217","UK",NA,"Conventional thermal","Level 1",203165.188,189296.528,180837.905
+"218","UK",NA,"Nuclear","Level 1",65149.08,63886.86,59097.753
+"219","UK",NA,"Hydro","Level 1",8286.51,8723.43,7678.659
+"220","UK",NA,"Pumped hydro power","Level 2",2948.89,2862.01,2515.998
+"221","UK",NA,"Wind","Level 1",37262.699,50003.654,56903.961
+"222","UK",NA,"Solar","Level 1",10410.948,11524.87,12857.349
+"223","UK",NA,"Geothermal","Level 1",0,0,0
+"224","UK",NA,"Other","Level 1",0,0,0
+"225","NO","Norway","Conventional thermal","Level 1",3212,3233,3457.28
+"226","NO","Norway","Nuclear","Level 1",0,0,0
+"227","NO","Norway","Hydro","Level 1",143442,142276,139512.026
+"228","NO","Norway","Pumped hydro power","Level 2",999,1157,3490.918
+"229","NO","Norway","Wind","Level 1",2116,2852,3875.881
+"230","NO","Norway","Solar","Level 1",0,0,0
+"231","NO","Norway","Geothermal","Level 1",0,0,0
+"232","NO","Norway","Other","Level 1",297,281,0
+"233","ME","Montenegro","Conventional thermal","Level 1",1216,1265,1444
+"234","ME","Montenegro","Nuclear","Level 1",0,0,0
+"235","ME","Montenegro","Hydro","Level 1",1807,1003.8,2137
+"236","ME","Montenegro","Pumped hydro power","Level 2",0,0,0
+"237","ME","Montenegro","Wind","Level 1",0,95,162
+"238","ME","Montenegro","Solar","Level 1",0,0,0
+"239","ME","Montenegro","Geothermal","Level 1",0,0,0
+"240","ME","Montenegro","Other","Level 1",0,0,0
+"241","MK","North Macedonia","Conventional thermal","Level 1",3281.378,4005.609,3309.114
+"242","MK","North Macedonia","Nuclear","Level 1",0,0,0
+"243","MK","North Macedonia","Hydro","Level 1",1869.694,1087.024,1774.496
+"244","MK","North Macedonia","Pumped hydro power","Level 2",0,0,0
+"245","MK","North Macedonia","Wind","Level 1",109.482,110.48,97.338
+"246","MK","North Macedonia","Solar","Level 1",23.699,23.752,22.788
+"247","MK","North Macedonia","Geothermal","Level 1",0,0,0
+"248","MK","North Macedonia","Other","Level 1",0,0,0
+"249","AL","Albania","Conventional thermal","Level 1",0,0,0
+"250","AL","Albania","Nuclear","Level 1",0,0,0
+"251","AL","Albania","Hydro","Level 1",7136,4496.607,8596.537
+"252","AL","Albania","Pumped hydro power","Level 2",0,0,0
+"253","AL","Albania","Wind","Level 1",0,0,0
+"254","AL","Albania","Solar","Level 1",0,1.2,0
+"255","AL","Albania","Geothermal","Level 1",0,0,0
+"256","AL","Albania","Other","Level 1",0,0,0
+"257","RS","Serbia","Conventional thermal","Level 1",25161,24566.923,23625.089
+"258","RS","Serbia","Nuclear","Level 1",0,0,0
+"259","RS","Serbia","Hydro","Level 1",11429,9670.033,11453.07
+"260","RS","Serbia","Pumped hydro power","Level 2",728,598.732,1147.848
+"261","RS","Serbia","Wind","Level 1",26,48.457,150.419
+"262","RS","Serbia","Solar","Level 1",12,13.139,12.608
+"263","RS","Serbia","Geothermal","Level 1",0,0,0
+"264","RS","Serbia","Other","Level 1",0,0,0
+"265","TR","Turkey","Conventional thermal","Level 1",174166,199910.043,195153.546
+"266","TR","Turkey","Nuclear","Level 1",0,0,0
+"267","TR","Turkey","Hydro","Level 1",66686,57823.851,59865.351
+"268","TR","Turkey","Pumped hydro power","Level 2",0,0,0
+"269","TR","Turkey","Wind","Level 1",15381,17793.167,19825.697
+"270","TR","Turkey","Solar","Level 1",1013,2817.837,7459.485
+"271","TR","Turkey","Geothermal","Level 1",4010,5101.487,6275.373
+"272","TR","Turkey","Other","Level 1",681,811.134,703.126
+"273","BA","Bosnia & Herzegovina","Conventional thermal","Level 1",10971,11250,4003.505
+"274","BA","Bosnia & Herzegovina","Nuclear","Level 1",0,0,0
+"275","BA","Bosnia & Herzegovina","Hydro","Level 1",5614,3968,3476.554
+"276","BA","Bosnia & Herzegovina","Pumped hydro power","Level 2",0,197,0
+"277","BA","Bosnia & Herzegovina","Wind","Level 1",0,0,22.368
+"278","BA","Bosnia & Herzegovina","Solar","Level 1",24,21,0
+"279","BA","Bosnia & Herzegovina","Geothermal","Level 1",0,0,0
+"280","BA","Bosnia & Herzegovina","Other","Level 1",0,0,0
+"281","UA","Ukraine","Conventional thermal","Level 1",65415,54041.9,60830.7
+"282","UA","Ukraine","Nuclear","Level 1",75931,80295.3,84397.9
+"283","UA","Ukraine","Hydro","Level 1",9025,8812,11920.2
+"284","UA","Ukraine","Pumped hydro power","Level 2",1633,1559,0
+"285","UA","Ukraine","Wind","Level 1",949,974,1185.9
+"286","UA","Ukraine","Solar","Level 1",490,737.6,737.8
+"287","UA","Ukraine","Geothermal","Level 1",0,0,0
+"288","UA","Ukraine","Other","Level 1",79,45,0
+"289","GE","Georgia","Conventional thermal","Level 1",2135,2131.3,2114.901
+"290","GE","Georgia","Nuclear","Level 1",0,0,0
+"291","GE","Georgia","Hydro","Level 1",9221,9096.8,9949.387
+"292","GE","Georgia","Pumped hydro power","Level 2",0,0,0
+"293","GE","Georgia","Wind","Level 1",9,87.7,84.226
+"294","GE","Georgia","Solar","Level 1",0,0,0
+"295","GE","Georgia","Geothermal","Level 1",0,0,0
+"296","GE","Georgia","Other","Level 1",0,0,0
