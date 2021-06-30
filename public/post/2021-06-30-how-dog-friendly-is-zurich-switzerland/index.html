@@ -1,0 +1,599 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>How dog-friendly is Zurich, Switzerland? &middot; Lucia Darrow</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="/assets/css/main.min.css">
+		
+		
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Lucia Darrow</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+
+		
+    
+    
+
+    <li class=""> <a href="/">Home</a></li>
+
+    
+
+    <li class=""> <a href="/about/">About</a></li>
+
+    
+
+    <li class=" active"> <a href="">Posts</a></li>
+
+    
+
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">June 30, 2021</span>
+                                
+                                <h1>How dog-friendly is Zurich, Switzerland?</h1>
+                                <p></p>
+                            </header>
+                            
+                            <div class="image main"><img src="" alt="" /></div>
+                            
+                            
+<script src="http://localhost:1313/post/2021-06-30-how-dog-friendly-is-zurich-switzerland/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>For the past few years, I’ve been interested in adopting a dog, but struggled to find an apartment that would allow one in Canada. At the end of May, I relocated from Vancouver, BC to Zürich, Switzerland. With its high-quality of living and access to nature, Zürich seems like an ideal place to live with a dog. So, how pet-friendly is the city of Zürich? In this post, I’ll explore data provided by the city and scraped from apartment rental sites to see which neighborhoods are the most pet-friendly.</p>
+<p>In a city with a population of approximately 400,000, there are just over 8,500 registered dogs (according to 2021 data). Publicly available data through the Stadt Zürich Open Data portal provides the id, age, and breed of the dog, in addition to information on its owner, including their district of residence. We can use this information to better understand which areas of the city may be best for pet owners to find an apartment.</p>
+<p>Let’s start by taking a look at the most popular breeds in the city. Zürich classifies dog breeds into three categories:</p>
+<ul>
+<li><strong>Type I</strong>: Large dogs, defined by a height of at least 45 cm and a body weight of at least 15 kg</li>
+<li><strong>Type II</strong>: Dogs with increased risk potential which are banned in the Canton of Zürich (e.g. Pit Bulls and Bull Terriers)</li>
+<li><strong>Type K</strong>: Small dogs</li>
+</ul>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+City District
+</th>
+<th style="text-align:right;">
+I
+</th>
+<th style="text-align:right;">
+K
+</th>
+<th style="text-align:right;">
+II
+</th>
+<th style="text-align:right;">
+Total Registered Dogs
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 1 </span>
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #e3d8ca">130</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 2 </span>
+</td>
+<td style="text-align:right;">
+354
+</td>
+<td style="text-align:right;">
+480
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #cfbea6">834</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 3 </span>
+</td>
+<td style="text-align:right;">
+323
+</td>
+<td style="text-align:right;">
+441
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d1c0aa">765</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 4 </span>
+</td>
+<td style="text-align:right;">
+141
+</td>
+<td style="text-align:right;">
+307
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #daccba">448</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 5 </span>
+</td>
+<td style="text-align:right;">
+107
+</td>
+<td style="text-align:right;">
+182
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ded2c2">290</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 6 </span>
+</td>
+<td style="text-align:right;">
+267
+</td>
+<td style="text-align:right;">
+329
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d6c6b2">596</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 7 </span>
+</td>
+<td style="text-align:right;">
+549
+</td>
+<td style="text-align:right;">
+618
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c6b196">1168</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 8 </span>
+</td>
+<td style="text-align:right;">
+186
+</td>
+<td style="text-align:right;">
+274
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d9cbb9">461</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 9 </span>
+</td>
+<td style="text-align:right;">
+384
+</td>
+<td style="text-align:right;">
+679
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c9b59b">1064</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 10</span>
+</td>
+<td style="text-align:right;">
+335
+</td>
+<td style="text-align:right;">
+422
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d1c0aa">758</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 11</span>
+</td>
+<td style="text-align:right;">
+492
+</td>
+<td style="text-align:right;">
+940
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bfa889">1433</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 12</span>
+</td>
+<td style="text-align:right;">
+201
+</td>
+<td style="text-align:right;">
+416
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d5c6b1">618</span>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This tables indicates that there are more dog owners residing in outer districts like Kreis 7 and Kreis 11, than in inner city districts. This could be simply due to the higher population in these areas. Overall, we can see that small breeds (Type K) are more common across all districts. There are only a handful of the restricted breeds (Type II) found in the city. Next, let’s take a closer look at the most popular breed by district.</p>
+<p><img src="dog_breed_plot.png" style="width:90.0%" /></p>
+<p>As expected, small breeds like the Chihuahua and mixed small breeds are most popular in the majority of districts. Interestingly, the Labrador Retriever is most popular in Kreis 7, which may indicate a more active lifestyle in this area.</p>
+<p>Renting is very common in Switzerland, with around 9 out of 10 people renting rather than owning property in Swiss cities. Zürich is certainly no exception. One of the most popular real estate websites in Switzerland is homegate.ch. Advertisers can choose to include whether or not their property listing is pet-friendly. In June 2021, I scraped the current 970 rental listings on homegate within the city of Zürich. The table below shows the count of listings split by city district and whether or not they are pet friendly.</p>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+City District
+</th>
+<th style="text-align:right;">
+Count of Pet-Friendly Listings
+</th>
+<th style="text-align:right;">
+Count of Other Listings
+</th>
+<th style="text-align:right;">
+Percentage Pet-Friendly
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 1 </span>
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d0bfa9">24.49%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 2 </span>
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #daccba">16.18%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 3 </span>
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bfa889">40.26%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 4 </span>
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #e1d6c7">10.00%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 5 </span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #e3d8ca">8.70%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 6 </span>
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ddd0bf">13.70%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 7 </span>
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c3ae91">36.05%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 8 </span>
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c5b093">35.00%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 9 </span>
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+83
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d3c3ad">22.43%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 10</span>
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c6b196">33.87%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 11</span>
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #cab79d">30.23%</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kreis 12</span>
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #daccba">16.00%</span>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This provides a more complete picture of pet-friendliness that the dog count table above as we start to get a sense of pets relative to total population in each district. We can also view this information graphically. In addition to showing the pet-friendly listings in each district, the plot below also shows the locations of parks across the city.</p>
+<p><img src="pet_friendly_listings_plot.png" style="width:90.0%" /></p>
+<p>Based on these results, it’s looks like districts 3, 7 and 11 are all great places to start a search for a pet-friendly apartment. They boast both a high dog population and a large percentage of pet-friendly rentals.</p>
+<p>Futher analysis could look into the number of pet resources in each of these districts, including features such as number of veterinarians, dog-walkers and pet friendly restaurants or shops.</p>
+
+
+                            
+                            
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section>
+      <form method="post" action="post-action">
+        <div class="fields">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="3"></textarea>
+          </div>
+        </div>
+        <ul class="actions">
+          <li><input type="submit" value='Send A Message' /></li>
+        </ul>
+      </form>
+    </section>
+    
+    <section class="split contact">
+        
+        
+        
+        <section>
+            <h3>Email</h3>
+            <p><a href="mailto:lucia.darrow@gmail.com">lucia.darrow@gmail.com</a></p>
+        </section>
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                <li><a href="https://www.instagram.com/lucia.darrow/" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                
+                
+                <li><a href="https://www.linkedin.com/in/lucia-darrow/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                
+                
+                <li><a href="https://github.com/lmdarrow" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Lucia Darrow</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Hugo Port: <a href="https://curtistimson.co.uk">curttimson</a></li></ul>
+</div>
+
+
+            </div>
+            
+            
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>
